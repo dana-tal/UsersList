@@ -14,7 +14,7 @@
             <Link class="nav-link custom_title" :class="{'active':$page.url==='/login'}" href="/login">Login</Link>
           </li>
           <li v-if="username !== null ">
-            <Link class="nav-link custom_title" href="/users"  >Users</Link>
+            <Link class="nav-link custom_title" :class="{'active':$page.url==='/users'}" href="/users"   >Users</Link>
           </li>
 
           <li v-if="username !== null">

@@ -27,7 +27,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/home');
+            return redirect('/users');
         }
 
         return back()->withErrors([
