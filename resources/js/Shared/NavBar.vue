@@ -1,6 +1,6 @@
 <template>
 
-<nav class="navbar navbar-expand-lg " style=" background-color:tan; ">
+<nav class="navbar navbar-expand-lg " style=" background-color:tan; "> <!--test -->
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
