@@ -15,18 +15,20 @@ class UserSeeder extends Seeder
 
     public function run(): void
     {
+        $admin_pass =  env('ADMIN_USER_PASS');
+
         User::create([
             'first_name' => 'Dana',
             'last_name' => 'Tal',
             'username'=>'danat',
-            'password' => bcrypt('Marb33bmk#'),
+            'password' => bcrypt($admin_pass),
             'is_admin' => true
         ]);
         User::create([
             'first_name' => 'Super',
             'last_name' => 'User',
             'username'=>'superuser',
-            'password' => bcrypt('Marb33bmk#'),
+            'password' => bcrypt($admin_pass),
             'is_admin' => true
         ]);
         User::create([
@@ -37,5 +39,6 @@ class UserSeeder extends Seeder
             'is_admin' =>false
         ]);
         User::factory(23)->create();
+
     }
 }
