@@ -48,7 +48,7 @@
 <script setup>
     import NavBar from '../../Shared/NavBar.vue';
 
-   import {useForm } from  '@inertiajs/vue3';
+   import {useForm, usePage } from  '@inertiajs/vue3';
 
 
     defineProps({
@@ -64,8 +64,8 @@
 
 
     let submit = () => {
-        form.post('/register');
-       //console.log($page.component);
+        let post_url =   usePage().props.app_url+'/register';
+        form.post(post_url);
     };
 
 
