@@ -8,13 +8,13 @@
             <Link class="nav-link  custom_title" :class="{'active':$page.component==='Home'}" aria-current="page" :href="get_link('')">Home</Link>
           </li>
           <li v-if="username===null" class="nav-item">
-            <Link class="nav-link custom_title" :class="{'active':$page.url ==='/register'}" :href="get_link('register')">Register</Link>
+            <Link class="nav-link custom_title" :class="{'active':$page.component ==='Auth/Register'}" :href="get_link('register')">Register</Link>
           </li>
           <li v-if="username===null" class="nav-item">
-            <Link class="nav-link custom_title" :class="{'active':$page.url=== '/login'}" :href="get_link('login')">Login</Link>
+            <Link class="nav-link custom_title" :class="{'active':$page.component=== 'Auth/Login'}" :href="get_link('login')">Login</Link>
           </li>
           <li v-if="username !== null ">
-            <Link class="nav-link custom_title" :class="{'active':$page.url==='/users'}" :href="get_link('users')"   >Users</Link>
+            <Link class="nav-link custom_title" :class="{'active':$page.component ==='Users'}" :href="get_link('users')"   >Users</Link>
           </li>
 
           <li v-if="username !== null">
@@ -58,6 +58,7 @@
             {
                 get_link(slug)
                     {
+                       // console.log (this.$page.url);
                         return this.$page.props.app_url+'/'+slug
                     }
             }
