@@ -42,7 +42,7 @@
 import Pagination from '../Shared/Pagination.vue';
 
 import {ref, watch,reactive } from "vue";
-import { router } from '@inertiajs/vue3';
+import { router, usePage } from '@inertiajs/vue3';
 import debounce from "lodash/debounce";
 
 let props =  defineProps({
@@ -54,12 +54,13 @@ let props =  defineProps({
 
     let state = reactive({checked_items:[ ]});
 
+    let domain_url =   usePage().props.app_url;
 
      watch(search,
         debounce(
                     function (value){
                                         console.log('changed '+value);
-                                        router.get('/users',{search: value }, {preserveState:true, replace:true });
+                                        router.get(domain_url+'/users',{search: value }, {preserveState:true, replace:true });
                                     },
                     500
                 )
@@ -71,7 +72,7 @@ function handle_click()
 {
     if (confirm("Are you sure you want to delete users :"+state.checked_items.join(',')) === true)
     {
-        router.post('/users/delete',{users: state.checked_items });
+        router.post(domain_url+'/users/delete',{users: state.checked_items });
     }
 }
 </script>
