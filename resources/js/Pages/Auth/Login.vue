@@ -30,10 +30,8 @@
 
 </template>
 <script setup>
-    import NavBar from '../../Shared/NavBar.vue';
 
-   import {useForm } from  '@inertiajs/vue3';
-
+   import {useForm, usePage} from  '@inertiajs/vue3';
 
     defineProps({
         errors: Object
@@ -46,8 +44,9 @@
 
 
     let submit = () => {
-        form.post('/login');
-       //console.log($page.component);
+        let post_url =   usePage().props.app_url+'/login';
+        form.post(post_url);
+
     };
 
 
