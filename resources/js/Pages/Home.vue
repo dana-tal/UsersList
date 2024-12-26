@@ -1,7 +1,7 @@
 <template>
             <div>
                 <div class="row"><div class="col"><h1>Welcome</h1></div></div>
-                <div v-if="username=== null " class="row"><div class="col"><p>Please login or register  {{ $page.props.app_url }} </p></div></div>
+                <div v-if="username=== null " class="row"><div class="col"><p>Please login or register </p></div></div>
                 <div v-else class="row"><div class="col"><p>Welcome back {{ username }}</p></div></div>
             </div>
 </template>

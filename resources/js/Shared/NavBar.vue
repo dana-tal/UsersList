@@ -5,7 +5,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <Link class="nav-link  custom_title" :class="{'active':$page.component==='Home'}" aria-current="page" href="/">Home</Link>
+            <Link class="nav-link  custom_title" :class="{'active':$page.component==='Home'}" aria-current="page" :href="get_link('')">Home</Link>
           </li>
           <li v-if="username===null" class="nav-item">
             <Link class="nav-link custom_title" :class="{'active':$page.url ==='/register'}" :href="get_link('register')">Register</Link>
