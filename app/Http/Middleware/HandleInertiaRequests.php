@@ -42,7 +42,11 @@ class HandleInertiaRequests extends Middleware
                     'username'=>Auth::user()->username,
                     'is_admin'=>Auth::user()->is_admin
                 ]
-            ]:null
+            ]:null,
+            'app_url'=>env('APP_URL')
         ]);
     }
+
+
+
 }

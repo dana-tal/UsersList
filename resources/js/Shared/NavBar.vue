@@ -8,21 +8,21 @@
             <Link class="nav-link  custom_title" :class="{'active':$page.component==='Home'}" aria-current="page" href="/">Home</Link>
           </li>
           <li v-if="username===null" class="nav-item">
-            <Link class="nav-link custom_title" :class="{'active':$page.url ==='/register'}" href="/register">Register</Link>
+            <Link class="nav-link custom_title" :class="{'active':$page.url ==='/register'}" :href="get_link('register')">Register</Link>
           </li>
           <li v-if="username===null" class="nav-item">
-            <Link class="nav-link custom_title" :class="{'active':$page.url==='/login'}" href="/login">Login</Link>
+            <Link class="nav-link custom_title" :class="{'active':$page.url=== '/login'}" :href="get_link('login')">Login</Link>
           </li>
           <li v-if="username !== null ">
-            <Link class="nav-link custom_title" :class="{'active':$page.url==='/users'}" href="/users"   >Users</Link>
+            <Link class="nav-link custom_title" :class="{'active':$page.url==='/users'}" :href="get_link('users')"   >Users</Link>
           </li>
 
           <li v-if="username !== null">
-            	  <Link class="nav-link custom_title" href="/logout"   method="post">Logout</Link>
+            	  <Link class="nav-link custom_title" :href="get_link('logout') "   method="post">Logout</Link>
           </li>
 
           <li v-if="username !== null">
-            <span class="welcome nav-link custom_title">Welcome back {{ username }}</span>
+            <span class="welcome nav-link custom_title">Welcome back {{ username }} </span>
           </li>
 
         </ul>
@@ -51,9 +51,17 @@
                         {
                             return null;
                         }
-                     //   return this.$page.props.auth.user.username;
                     }
-                }
+
+                },
+            methods:
+            {
+                get_link(slug)
+                    {
+                        return this.$page.props.app_url+'/'+slug
+                    }
+            }
+
     }
 
 
